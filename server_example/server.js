@@ -16,3 +16,21 @@ var socketServer = io.listen(webServer, {"log level":1});
 
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
+
+easyrtc.on("getIceConfig", function(connectionObj, callback){
+  var myIceServers=[
+    {"url":"stun:stun.easyrtc.com:3478"},
+    {
+      "url":        "turn:lvps176-28-19-44.dedicated.hosteurope.de:3478",
+      "username":   "turnuser",
+      "credential": "someComplicatedPasswordW1thNumb3r5"
+    },
+    {
+      "url":        "turn:numb.viagenie.ca:3478",
+      "username":   "michael.kuenzli@fhnw.ch",
+      "credential": "someComplicatedPasswordW1thNumb3r5"
+    }
+  ];
+
+  callback(null, myIceServers);
+});

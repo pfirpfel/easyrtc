@@ -11,7 +11,7 @@
   },
 
   "dependencies" : {
-    "easyrtc"   : "1.0.x",
+    "easyrtc"   : "pfirpfel/easyrtc.git#beta",
     "express"   : "*",
     "socket.io" : "0.9.x"
   },
